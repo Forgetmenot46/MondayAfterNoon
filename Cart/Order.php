@@ -16,6 +16,6 @@ if (!isset($_SESSION["intLine"])) {
         $_SESSION["strProductID"][$intNewLine] = $_GET["ProductID"];
         $_SESSION["strQty"][$intNewLine] = 1;
     }
-    header("location:show.php");
+    header("location:Show.php");
 }
 ?>

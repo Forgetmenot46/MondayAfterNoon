@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 09:56 AM
+-- Generation Time: Feb 09, 2025 at 11:49 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -92,7 +92,9 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`OrderID`, `OrderDate`, `Name`, `Address`, `Tel`, `Email`) VALUES
 (00001, '2013-08-30 09:59:13', 'Rungsan Suwannahong', '39 RMUTT Thailand', '0211245647', 'rungsansu@gmail.com'),
 (00002, '2013-08-30 10:15:03', 'Rungsan Suwannahong', '39 RMUTT Thailand', '0211245647', 'rungsansu@gmail.com'),
-(00013, '2025-02-03 09:41:24', 'Attachai', '169/293 aasasdasTesting', '0993251457', 'wwe543216@hotmail.com');
+(00013, '2025-02-03 09:41:24', 'Attachai', '169/293 aasasdasTesting', '0993251457', 'wwe543216@hotmail.com'),
+(00015, '2025-02-09 11:46:14', 'Attachai Singthong', 'asdasdasads', '09932413', '1165105050447@mail.rmutt.ac.th'),
+(00016, '2025-02-09 11:48:27', 'Testing123', 'asdfasfasdf', '09932413', '1165105050447@mail.rmutt.ac.th');
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,11 @@ INSERT INTO `orders_detail` (`DetailID`, `OrderID`, `ProductID`, `Qty`) VALUES
 (2, 00002, 3, 3),
 (3, 00002, 1, 1),
 (4, 00002, 4, 1),
-(10, 00013, 1, 1);
+(10, 00013, 1, 1),
+(11, 00015, 2, 32),
+(12, 00015, 1, 12),
+(13, 00016, 4, 2),
+(14, 00016, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -207,13 +213,13 @@ ALTER TABLE `files2`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `OrderID` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  MODIFY `DetailID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `DetailID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `product`

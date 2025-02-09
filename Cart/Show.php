@@ -1,5 +1,12 @@
 <?php
 session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_qty"])) {
+    foreach ($_POST["strNewQty"] as $index => $newQty) {
+        $_SESSION["strQty"][$index] = max(1, (int)$newQty); // ป้องกันค่าติดลบหรือศูนย์
+    }
+}
+
+
 ?>
 <html>
 
@@ -20,7 +27,7 @@ include("include.php");
         <td width="10">Add</td>
         <td width="10">minus</td>
     </tr>
-    <form>
+    <form method="post" action="">
         <?php
         $Total = 0;
         $SumTotal = 0;
@@ -31,30 +38,36 @@ include("include.php");
                 $objResult = mysqli_fetch_array($objQuery);
                 $Total = $_SESSION["strQty"][$i] * $objResult["Price"];
                 $SumTotal = $SumTotal + $Total;
-                ?>
+        ?>
                 <tr>
                     <td><?= $_SESSION["strProductID"][$i]; ?></td>
                     <td><?= $objResult["ProductName"]; ?></td>
                     <td><?= $objResult["Price"]; ?></td>
-                    <td><input type="number" name="strNewQty" value="<?= $_SESSION["strQty"][$i]; ?>" </td>
+                    <td><input type="number" name="strNewQty[<?= $i; ?>]" value="<?= $_SESSION["strQty"][$i]; ?>" min="1"></td>
                     <td><?= number_format($Total, 2); ?></td>
                     <td><a href="delete.php?Line=<?= $i; ?>">x</a></td>
                     <td><a href="cal_p.php?ProductID=<?= $objResult["ProductID"]; ?>">+</a></td>
                     <td><a href="cal_m.php?ProductID=<?= $objResult["ProductID"]; ?>">-</a></td>
                 </tr>
-                <?php
+        <?php
             }
         }
         ?>
+        <tr>
+            <td colspan="2" align="center">
+                Update Qty : 
+                <input type="submit" name="update_qty" value="Cilck">
+            </td>
+        </tr>
     </form>
 </table>
 Sum Total <?= number_format($SumTotal, 2); ?>
 <br><br><a href="product.php">Go to Product</a>
 <?php
 if ($SumTotal > 0) {
-    ?>
+?>
     | <a href="checkout.php">CheckOut</a>
-    <?php
+<?php
 }
 ?>
 
