@@ -2,7 +2,7 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_qty"])) {
     foreach ($_POST["strNewQty"] as $index => $newQty) {
-        $_SESSION["strQty"][$index] = max(1, (int)$newQty); // ป้องกันค่าติดลบหรือศูนย์
+        $_SESSION["strQty"][$index] = (int)$newQty; // ป้องกันค่าติดลบหรือศูนย์
     }
 }
 
