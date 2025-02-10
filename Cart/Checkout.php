@@ -1,6 +1,5 @@
 <?php
 session_start();
-//Testing git clone ห้องเรียนอิอิ
 ?>
 <html>
 
