@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2025 at 11:49 AM
+-- Generation Time: Feb 10, 2025 at 08:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `monday_aft`
+-- Database: `mon_atf`
 --
 
 -- --------------------------------------------------------
@@ -147,6 +147,63 @@ INSERT INTO `product` (`ProductID`, `ProductName`, `Price`, `Picture`) VALUES
 (3, 'Product 3', 300, 'shoe.jpg'),
 (4, 'Product 4', 400, 'watch.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `ReplyID` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `QuestionID` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `CreateDate` datetime NOT NULL,
+  `Details` text NOT NULL,
+  `Name` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`ReplyID`, `QuestionID`, `CreateDate`, `Details`, `Name`) VALUES
+(00001, 00012, '2025-02-10 08:26:30', 'ที่พูดมามันก็จริงนะพี่ชาย', 'น้องไผ่ขยี่ตูด'),
+(00002, 00012, '2025-02-10 08:29:39', 'ลองดูคะ พี่', 'น้องไผ่ขยี่ตูด'),
+(00003, 00001, '2025-02-10 08:32:49', 'จริงๆๆ นะ เออ', 'อิอิ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `webboard`
+--
+
+CREATE TABLE `webboard` (
+  `QuestionID` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `CreateDate` datetime NOT NULL,
+  `Question` varchar(255) NOT NULL,
+  `Details` text NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `View` int(5) NOT NULL,
+  `Reply` int(5) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `webboard`
+--
+
+INSERT INTO `webboard` (`QuestionID`, `CreateDate`, `Question`, `Details`, `Name`, `View`, `Reply`) VALUES
+(00001, '2025-02-10 07:51:26', 'อะหิๆๆๆๆ', 'ฟหกหฟกฟหก', 'ฟหกหฟก', 10, 1),
+(00002, '2025-02-10 07:51:43', 'ฟหกฟหกฟห', 'ฟหกหฟกฟหก', 'ฟหกหฟก', 0, 0),
+(00003, '2025-02-10 07:52:17', '$conn,Question', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', 'Attachai', 0, 0),
+(00004, '2025-02-10 08:11:59', 'asddasdas', 'asdasdsdd', 'assddssd', 0, 0),
+(00005, '2025-02-10 08:12:03', 'asdasdadssdsd', 'sdsdasddsads', 'adsdasdsdsd', 0, 0),
+(00006, '2025-02-10 08:12:11', 'dasadsadsads', 'dsssddsda', 'sassdasdssds', 0, 0),
+(00007, '2025-02-10 08:12:15', 'asdfasdfsdaf', 'asdsaasdfasdasdfasdfd', 'asdfasdfasdf', 0, 0),
+(00008, '2025-02-10 08:12:19', 'fsadfsadfdas', 'fasdfdsafadsf', 'dsafasdfs', 0, 0),
+(00009, '2025-02-10 08:12:22', 'asdfsdaasd', 'dsafsadfasdf', 'asfsdad', 1, 0),
+(00010, '2025-02-10 08:12:25', 'asdfsdfasdf', 'asdfsdafdasfd', 'safasdfdasf', 0, 0),
+(00011, '2025-02-10 08:12:28', 'asdfdsafsdaf', 'sadfasdfasd', 'fsadfdas', 3, 0),
+(00012, '2025-02-10 08:12:36', 'dasffdsasdfasfd', 'fasdfsdasadfsfaasfafs', 'sfaasasffsaafd', 7, 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -188,6 +245,18 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`ProductID`);
 
 --
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD PRIMARY KEY (`ReplyID`);
+
+--
+-- Indexes for table `webboard`
+--
+ALTER TABLE `webboard`
+  ADD PRIMARY KEY (`QuestionID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -226,6 +295,18 @@ ALTER TABLE `orders_detail`
 --
 ALTER TABLE `product`
   MODIFY `ProductID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `ReplyID` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `webboard`
+--
+ALTER TABLE `webboard`
+  MODIFY `QuestionID` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
