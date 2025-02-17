@@ -1,0 +1,60 @@
+/* commet */
+P {
+    color: blue;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    background-color: teal;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.para1 {
+    padding: 20px;
+    color: #ff00ff;
+}
+
+
+body {
+    background-color: rgb(239, 255, 148);
+}
+
+
+h1 {
+    background-color: green;
+    color: blue;
+    text-align: center;
+
+}
+
+
+p.dotted {
+    border: 10px;
+    border-radius: 20px;
+    border-style: dotted;
+    border-color: red;
+    background-color: aliceblue;
+}
+
+p.dashed {
+    border-style: dashed;
+}
+
+.test {
+    color: black;
+    background-color: aqua;
+    padding: 10vh;
+    text-align: left;
+}
+
+#para3 {
+    font-size: 70px;
+    border: 21px;
+    border-style: groove;
+    border-radius: 25px;
+
+
+}
